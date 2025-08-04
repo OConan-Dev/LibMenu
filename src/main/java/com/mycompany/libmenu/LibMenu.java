@@ -16,7 +16,7 @@ public class LibMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Select Options:\n1: User Login\n2: Staff Login\n3: View Library Contents\n4: Exit");
+        System.out.println("Select Option:\n1: User Login\n2: Staff Login\n3: View Library Contents\n4: Exit");
         
         int usrOpt;
         
@@ -45,7 +45,7 @@ public class LibMenu {
         
         //if else statments for later
 //        if (usrOpt == 1) {
-//           System.out.println("Loggin in");
+//           System.out.println("Please insert Userame");
 //        }
 //        else if (usrOpt == 2) {
 //            System.out.println("Staff logon loading");
