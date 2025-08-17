@@ -20,9 +20,12 @@ public class LibMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
+         int usrOpt; //Var for user choice in menu
+        
+        do {
         System.out.println("Select Option:\n1: User Login\n2: Staff Login\n3: View Library Contents\n4 Create new user\n5: Exit"); //Base options
         
-        int usrOpt; //Var for user choice in menu
+//        int usrOpt; //Var for user choice in menu
         String usrNam; //var for setting a username 
         String usrPwd; //Var for setting a password
      
@@ -70,16 +73,28 @@ public class LibMenu {
             } catch (IOException e) {
                 System.out.println("An error occured");
                 e.printStackTrace();
-                File myObj = new File("filename.txt");
-                Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
-                    System.out.println(data);
-                }
-                myReader.close();
-            } catch (FileNotFoundException e) {
-                System.out.println("An Error Occured");
-                e.printStackTrace();
-                }
+            }
+        }
+        }
+        while (usrOpt != 5);
+        sc.close();
+        System.exit(0);
+        
+        
+    }
+//        sc.close();
+    }
+            
+//                File myObj = new File("filename.txt");
+//                Scanner myReader = new Scanner(myObj);
+//                while (myReader.hasNextLine()) {
+//                    System.out.println(data);
+//                }
+//                myReader.close();
+//            } catch (FileNotFoundException e) {
+//                System.out.println("An Error Occured");
+//                e.printStackTrace();
+//                }
 //                File myObj = new File("filename.txt");
 //                if (myObj.exists()) {
 //                    System.out.println("File name: " + myObj.getName());
@@ -90,11 +105,11 @@ public class LibMenu {
 //                } else {
 //                    System.out.println("Does not exist");
 //                }
-            }
-            }
+//            }
+//            }
 //        else
 //            System.out.println("WIP");
 //        
 //        sc.close();
-        }
+//        }
 
