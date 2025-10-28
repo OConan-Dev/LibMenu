@@ -6,8 +6,8 @@ package com.mycompany.libmenu;
 
 /**
  *
- * @author 30128308
+ * @author Orang
  */
-class string {
+public class checkLogin {
     
 }

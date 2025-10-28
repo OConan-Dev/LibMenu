@@ -23,16 +23,11 @@ public class LibMenu {
          int usrOpt; //Var for user choice in menu
         
         do {
-        System.out.println("Select Option:\n1: User Login\n2: Staff Login\n3: View Library Contents\n4 Create new user\n5: Exit"); //Base options
-        
-//        int usrOpt; //Var for user choice in menu
-        String usrNam; //var for setting a username 
-        String usrPwd; //Var for setting a password
+        System.out.println("Select Option:\n1: User Login\n2: Staff Login\n3: View Library Contents\n4: Create new user\n5: Exit"); //Base options
      
         System.out.println("Type option");
         usrOpt = sc.nextInt();
-        
-        //sc.close(); // scanner close
+        sc.nextLine();
         
         switch (usrOpt) { //switches the use case
             case 1:
@@ -44,72 +39,44 @@ public class LibMenu {
             case 3:
                 System.out.println("Loading Library Contents");
                 break;
-            case 4:
-                System.out.println("Loading User creation menu");
+            case 4: {
+                String username;
+                String password;
+                boolean confirm = false;
+                do {
+                System.out.println("Enter new Username:");
+                username = sc.nextLine();
+                
+                System.out.println("Enter new Password:");
+                password = sc.nextLine();
+                
+                System.out.println("Are you happy with the username and password: " + username + " " + password + " [yes/no]");
+                String input = sc.nextLine().trim().toLowerCase();
+                confirm = input.equals("yes");
+                
+                if (!confirm) {
+                    System.out.println("Please enter details again");
+                }
+                } while (!confirm);
+                
+                FileWrite.fileWrite(username, password);
                 break;
+            }
             case 5:
                 System.out.println("Now Exiting...");
+                sc.close();
+                System.exit(0);
+                break;
+            case 6:
+                System.out.println("Secret testing case");
+                FileRead.fileRead();
                 break;
             default:
                 System.out.println("Error: Invalid Option");
         }
-        
-        if (usrOpt == 5) {
-            System.exit(0);
-        }
-        else if (usrOpt == 4){
-            System.out.println("Please enter a username:");
-            sc.nextLine();
-            usrNam = sc.nextLine();
-            System.out.println("Please set a password:");
-            //sc.nextLine();
-            usrPwd = sc.nextLine();
-            System.out.println("You have set the Username and password:" + usrNam + " " + usrPwd);
-            try {
-            FileWriter myWriter = new FileWriter("filename.txt");
-            myWriter.write(usrNam + " " + usrPwd);
-            myWriter.close();
-            System.out.println("Wrote to file!");
-            } catch (IOException e) {
-                System.out.println("An error occured");
-                e.printStackTrace();
-            }
-        }
-        }
-        while (usrOpt != 5);
+
+        } while (usrOpt != 5);
         sc.close();
         System.exit(0);
-        
-        
-    }
-//        sc.close();
-    }
-            
-//                File myObj = new File("filename.txt");
-//                Scanner myReader = new Scanner(myObj);
-//                while (myReader.hasNextLine()) {
-//                    System.out.println(data);
-//                }
-//                myReader.close();
-//            } catch (FileNotFoundException e) {
-//                System.out.println("An Error Occured");
-//                e.printStackTrace();
-//                }
-//                File myObj = new File("filename.txt");
-//                if (myObj.exists()) {
-//                    System.out.println("File name: " + myObj.getName());
-//                    System.out.println("Path: " + myObj.getAbsolutePath());
-//                    System.out.println("writeable: " + myObj.canWrite());
-//                    System.out.println("readable: " + myObj.canRead());
-//                    System.out.println("File size in bytes: " + myObj.length());
-//                } else {
-//                    System.out.println("Does not exist");
-//                }
-//            }
-//            }
-//        else
-//            System.out.println("WIP");
-//        
-//        sc.close();
-//        }
-
+}
+}
